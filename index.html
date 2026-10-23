@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#9bc86a">
+  <meta name="description" content="배포 자동화와 안정적인 인프라를 만드는 DevOps 엔지니어 강민종의 이력서입니다.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="강민종 DevOps Engineer">
+  <meta property="og:description" content="동료들이 새로운 시도에 집중할 수 있는 기반을 만듭니다.">
+  <title>이력서 - 강민종</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="assets/fonts/Pretendard-Bold.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#projects">프로젝트로 바로 가기</a>
+  <main class="resume">
+    <header class="intro">
+      <h1>DevOps 엔지니어,<br>강민종입니다<span class="accent">.</span></h1>
+      <p class="lead">동료들이 더 쉽게 새로운 시도를 하고, 사용자는 불편 없이 서비스를 즐길 수 있도록 운영 환경을 설계하고 개선합니다. 배포와 테스트를 자동화하고, 장애의 원인을 깊게 파고들며 안정적인 서비스 구축을 지향합니다.</p>
+      <p class="availability">보충역 산업기능요원 신규 편입을 희망합니다.</p>
+      <p class="intro-contact">
+        <a href="tel:+821055322386">010-5532-2386</a>
+        <a href="mailto:kjskkdkmj@gmail.com">kjskkdkmj@gmail.com</a>
+      </p>
+    </header>
+
+    <section id="projects" aria-labelledby="projects-title">
+      <h2 id="projects-title">Projects<span class="accent">.</span></h2>
+      <div class="experience">
+        <div class="experience-summary">
+          <h3>집중도 분석<br>플랫폼<span class="accent">.</span></h3>
+          <p>DevOps / Infrastructure</p>
+          <span class="date"><time datetime="2026-03">2026. 03</time> - <time datetime="2026-06">2026. 06</time></span>
+          <p>팀 프로젝트 4인</p>
+          <p class="repository"><a href="https://github.com/kang0225/focus-tracking-platform" target="_blank" rel="noopener noreferrer">GitHub Repository</a></p>
+        </div>
+        <div class="experience-detail">
+          <article class="work">
+            <h4>무중단 배포와<br>인프라 자동화<span class="accent">.</span></h4>
+            <h5>Overview<span class="accent">.</span></h5>
+            <p>웹캠과 워치를 활용한 실시간 학습 집중도 분석 플랫폼의 인프라와 배포를 담당했습니다. 서비스 변경부터 배포, 장애 복구까지 이어지는 과정을 자동화했습니다.</p>
+            <h5>Contributions<span class="accent">.</span></h5>
+            <ul class="contributions">
+              <li><strong>ECS Blue/Green 배포의 Capacity 데드락 해소</strong>: Capacity Provider가 ASG를 확장하지 않는 원인을 찾아 Fargate로 전환 <a href="https://devops-game.tistory.com/22" target="_blank" rel="noopener noreferrer">Troubleshooting #1</a></li>
+              <li><strong>무중단 배포 파이프라인과 Artifact 관리</strong>: Git SHA 태그 이미지를 ECR에서 관리하고, CodeDeploy Blue/Green과 실패 시 자동 Rollback 구성</li>
+              <li><strong>IaC와 최소 권한 관리</strong>: moved 블록으로 재생성 없이 네트워크를 Terraform 모듈로 분리하고, GitHub Actions OIDC로 장기 Access Key 제거</li>
+            </ul>
+            <h5>Tech Stack<span class="accent">.</span></h5>
+            <p>AWS ECS, Fargate, CodeDeploy, ECR, SSM, Terraform, GitHub Actions, Checkov</p>
+          </article>
+
+          <article class="work">
+            <h4>관측성과<br>네트워크 안정성<span class="accent">.</span></h4>
+            <h5>Overview<span class="accent">.</span></h5>
+            <p>간헐적인 통신 장애를 로그와 패킷으로 추적하고, 서비스 상태를 조기에 감지하는 모니터링 및 알림 체계를 구축했습니다. 모니터링에는 Grafana를 사용하다가 Datadog으로 전환했습니다.</p>
+            <h5>Contributions<span class="accent">.</span></h5>
+            <ul class="contributions">
+              <li><strong>가용 영역 간 서비스 통신 장애 해결</strong>: VPC Flow Logs의 REJECT 기록으로 NACL 포트 규칙 누락을 찾아 Terraform에 반영 <a href="https://devops-game.tistory.com/23" target="_blank" rel="noopener noreferrer">Troubleshooting #2</a></li>
+              <li><strong>Redis 재연결 5분간 6회 → 0회</strong>: 패킷 분석으로 1초 소켓 유휴 타임아웃을 원인으로 특정해 5초로 조정 <a href="https://devops-game.tistory.com/25" target="_blank" rel="noopener noreferrer">Troubleshooting #3</a></li>
+              <li><strong>전송 구간 처리량 추산</strong>: RTT와 서버 체류 시간을 측정해 단일 연결 약 740건/초, 1,000명이 초당 1회 보낼 때 대역폭 약 6.8Mbps로 산정</li>
+              <li><strong>장애 조기 감지와 알림</strong>: ALB 5xx, 실행 Task, CPU, 응답시간 기준 CloudWatch Alarm을 구성하고, Datadog Composite Monitor로 오탐과 중복 알림 감소</li>
+              <li><strong>로그 보관과 네트워크 추적</strong>: ECS 로그는 Firehose로 S3에 날짜별 스트리밍 적재, ALB 로그는 S3 Lifecycle 적용, Flow Logs는 REJECT 트래픽만 수집</li>
+            </ul>
+            <h5>Tech Stack<span class="accent">.</span></h5>
+            <p>CloudWatch, Grafana, Datadog, VPC Flow Logs, tcpdump, Wireshark, Redis, Kinesis Data Firehose, S3</p>
+          </article>
+
+          <article class="work">
+            <h4>비용 최적화와<br>학습 피드백 개발<span class="accent">.</span></h4>
+            <h5>Overview<span class="accent">.</span></h5>
+            <p>개발 환경의 가동 시간을 조정해 인프라 비용을 줄이고, 세션 분석 지표를 학습 습관 피드백으로 바꾸는 기능을 개발했습니다.</p>
+            <h5>Contributions<span class="accent">.</span></h5>
+            <ul class="contributions">
+              <li><strong>개발 인프라 비용 월 약 50달러(40%) 절감</strong>: 22시 정지, 9시 기동 스케줄로 dev 가동시간을 24시간에서 13시간으로 단축</li>
+              <li><strong>LLM 기반 학습 피드백 기능 개발</strong>: AWS Bedrock 호출에 타임아웃과 규칙 기반 폴백을 적용해 모델 호출이 실패해도 결과 제공</li>
+            </ul>
+            <h5>Tech Stack<span class="accent">.</span></h5>
+            <p>Terraform, Application Auto Scaling, EventBridge Scheduler, Python, AWS Bedrock</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="open-source-title">
+      <h2 id="open-source-title">Open Source Contributions<span class="accent">.</span></h2>
+      <article class="experience">
+        <div class="experience-summary">
+          <h3>NVIDIA Cluster Readiness Engine<span class="accent">.</span></h3>
+          <p class="repository"><a href="https://github.com/NVIDIA/cluster-readiness-engine/pull/531" target="_blank" rel="noopener noreferrer">PR #531</a></p>
+        </div>
+        <div class="experience-detail">
+          <ul class="contributions">
+            <li>Helm 차트의 이미지 Pull 정책 설정이 Deployment에 반영되지 않던 오류 수정</li>
+            <li>기존 기본 동작 유지 및 설정값 검증 추가, Go 렌더 테스트와 kind 클러스터를 통한 동작 검증</li>
+          </ul>
+        </div>
+      </article>
+      <article class="experience">
+        <div class="experience-summary">
+          <h3>Tekton Operator<span class="accent">.</span></h3>
+          <p class="repository"><a href="https://github.com/tektoncd/operator/pull/4296" target="_blank" rel="noopener noreferrer">PR #4296</a></p>
+        </div>
+        <div class="experience-detail">
+          <ul class="contributions">
+            <li>Helm 차트 변경 시 helm lint --strict를 실행하는 GitHub Actions 워크플로 추가 및 필수 CI 검사 연동</li>
+            <li>포크 CI에서 정상 차트 통과와 잘못된 템플릿 실패 검증</li>
+          </ul>
+        </div>
+      </article>
+      <article class="experience">
+        <div class="experience-summary">
+          <h3>KMate<span class="accent">.</span></h3>
+          <p class="repository"><a href="https://github.com/sahabti/kmate/pull/30" target="_blank" rel="noopener noreferrer">PR #30</a></p>
+        </div>
+        <div class="experience-detail">
+          <ul class="contributions">
+            <li>단일 복제본 환경에서 노드 drain을 막던 PDB 설정을 maxUnavailable 기반으로 수정</li>
+            <li>이전 Helm values와 명시적 0 설정의 호환성 보완 및 Helm lint와 template을 통한 검증</li>
+          </ul>
+        </div>
+      </article>
+    </section>
+
+    <section aria-labelledby="skills-title">
+      <h2 id="skills-title">Skills<span class="accent">.</span></h2>
+      <div class="entry">
+        <h3>Container &amp; Cloud<span class="accent">.</span></h3>
+        <ul><li>Docker, Kubernetes, Helm, AWS, Linux</li></ul>
+      </div>
+      <div class="entry">
+        <h3>IaC &amp; CI/CD<span class="accent">.</span></h3>
+        <ul><li>Terraform, GitHub Actions, CodeDeploy, ECR, Checkov</li></ul>
+      </div>
+      <div class="entry">
+        <h3>Observability<span class="accent">.</span></h3>
+        <ul><li>CloudWatch, Datadog, Grafana</li></ul>
+      </div>
+      <div class="entry">
+        <h3>Language &amp; Tools<span class="accent">.</span></h3>
+        <ul><li>Go, Python, Bash, tcpdump/Wireshark</li></ul>
+      </div>
+    </section>
+
+    <section aria-labelledby="certifications-title">
+      <h2 id="certifications-title">Certifications<span class="accent">.</span></h2>
+      <article class="entry">
+        <h3>Certified Kubernetes Administrator<span class="accent">.</span></h3>
+        <span class="position">Linux Foundation</span>
+        <span class="date"><time datetime="2026-09">2026. 09</time> - <time datetime="2028-08">2028. 08</time> 유효</span>
+      </article>
+      <article class="entry">
+        <h3>Solutions Architect Associate<span class="accent">.</span></h3>
+        <span class="position">AWS</span>
+        <span class="date"><time datetime="2026-02">2026. 02</time> - <time datetime="2029-02">2029. 02</time> 유효</span>
+      </article>
+      <article class="entry">
+        <h3>Terraform Associate<span class="accent">.</span></h3>
+        <span class="position">HashiCorp</span>
+        <span class="date"><time datetime="2026-06">2026. 06</time> - <time datetime="2028-05">2028. 05</time> 유효</span>
+      </article>
+      <article class="entry">
+        <h3>SQL Developer<span class="accent">.</span></h3>
+        <span class="position">한국데이터산업진흥원</span>
+        <span class="date"><time datetime="2024-09">2024. 09</time> 취득</span>
+      </article>
+    </section>
+
+    <section aria-labelledby="education-title">
+      <h2 id="education-title">Education<span class="accent">.</span></h2>
+      <article class="entry">
+        <h3>동국대학교<span class="accent">.</span></h3>
+        <span class="position">서울캠퍼스 / 정보통신공학과</span>
+        <span class="date"><time datetime="2023-03">2023. 03</time> - 휴학 중</span>
+        <p>4학년 1학기 수료</p>
+      </article>
+    </section>
+
+    <section aria-labelledby="activities-title">
+      <h2 id="activities-title">Other Experiences<span class="accent">.</span></h2>
+      <article class="entry">
+        <h3>AWS Student Builder Group<span class="accent">.</span></h3>
+        <span class="position">DGU 1st / AWS CloudOps</span>
+        <span class="date"><time datetime="2026-05">2026. 05</time> - 현재</span>
+        <p>AWS 서비스 심화 세션에 참여하고, 쿠버네티스 스터디를 병행하며 클러스터 구성과 운영 개념을 학습하고 있습니다.</p>
+      </article>
+      <article class="entry">
+        <h3>동국대학교 Farm System<span class="accent">.</span></h3>
+        <span class="position">9th / DevOps Programming</span>
+        <span class="date"><time datetime="2026-03">2026. 03</time> - <time datetime="2026-07">2026. 07</time></span>
+        <p>배포 전략과 CI/CD 파이프라인 구성을 학습하고, 같은 기간 진행한 집중도 분석 플랫폼의 무중단 배포 구축에 적용했습니다.</p>
+      </article>
+      <article class="entry">
+        <h3>BDAI<span class="accent">.</span></h3>
+        <span class="position">11th, 12th / Machine Learning</span>
+        <span class="date"><time datetime="2025-09">2025. 09</time> - <time datetime="2026-06">2026. 06</time></span>
+        <p>머신러닝 모델링 과정을 학습하고 실습 프로젝트를 진행했습니다. 공공 대기질 데이터로 다음 날 미세먼지 등급을 예측하는 분류 모델을 구성하고, 시계열 교차검증과 클래스 불균형 처리를 적용했습니다.</p>
+      </article>
+    </section>
+
+    <section aria-labelledby="contact-title">
+      <h2 id="contact-title">Contact<span class="accent">.</span></h2>
+      <ul class="contact-list">
+        <li><a href="mailto:kjskkdkmj@gmail.com">이메일: kjskkdkmj@gmail.com</a></li>
+        <li><a href="tel:+821055322386">전화: 010-5532-2386</a></li>
+        <li><a href="https://devops-game.tistory.com/" target="_blank" rel="noopener noreferrer">기술 블로그</a></li>
+        <li><a href="https://github.com/kang0225" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+        <li><a href="assets/KangMinJong_DevOps_Resume.pdf" download="강민종_DevOps_이력서.pdf">PDF 이력서 다운로드</a></li>
+      </ul>
+    </section>
+
+  </main>
+</body>
+</html>
