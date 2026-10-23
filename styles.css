@@ -89,16 +89,16 @@ p { margin: 0 0 1rem; font-size: 1.1rem; line-height: 1.4; }
 .experience {
   display: grid;
   grid-template-columns: 18rem minmax(0, 1fr);
-  padding-block: 3rem;
+  padding-block: 1.5rem;
 }
 
 .experience-summary { padding-right: 1rem; }
 .experience-summary p { font-size: 1rem; line-height: 1.4; margin-bottom: 0.4rem; }
 .experience-summary .repository { margin-top: 1rem; }
-.work { padding-block: 1.5rem; }
+.work { padding-block: 1rem; }
 .work:first-child { padding-top: 0; }
 .work:last-child { padding-bottom: 0; }
-.work + .work { margin-top: 0.5rem; }
+.work + .work { margin-top: 0.25rem; }
 .date, .position { display: block; }
 .date { margin-bottom: 1.5rem; }
 
@@ -108,7 +108,7 @@ li::before { content: "•"; position: absolute; left: 0; color: var(--accent); 
 .contributions li + li { margin-top: 0.6rem; }
 .contributions a { white-space: nowrap; }
 
-.entry { padding-block: 3rem; }
+.entry { padding-block: 1.5rem; }
 .entry p:last-child, .entry ul:last-child { margin-bottom: 0; }
 .entry .position { margin-bottom: 0.25rem; }
 .contact-list a { overflow-wrap: anywhere; }
