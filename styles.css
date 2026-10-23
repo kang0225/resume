@@ -67,6 +67,7 @@ a:hover { color: #365621; }
 a:focus-visible { outline: 2px solid var(--link); outline-offset: 4px; }
 
 .resume { max-width: 50rem; margin-inline: auto; padding-inline: 2rem; }
+.resume > section + section { border-top: 1px solid var(--rule); }
 .intro { padding-top: 3.35rem; }
 
 h1, h2, h3, h4, h5 { font-weight: 700; }
@@ -89,7 +90,6 @@ p { margin: 0 0 1rem; font-size: 1.1rem; line-height: 1.4; }
   display: grid;
   grid-template-columns: 18rem minmax(0, 1fr);
   padding-block: 3rem;
-  border-bottom: 1px solid var(--rule);
 }
 
 .experience-summary { padding-right: 1rem; }
@@ -108,7 +108,7 @@ li::before { content: "•"; position: absolute; left: 0; color: var(--accent); 
 .contributions li + li { margin-top: 0.6rem; }
 .contributions a { white-space: nowrap; }
 
-.entry { padding-block: 3rem; border-bottom: 1px solid var(--rule); }
+.entry { padding-block: 3rem; }
 .entry p:last-child, .entry ul:last-child { margin-bottom: 0; }
 .entry .position { margin-bottom: 0.25rem; }
 .contact-list a { overflow-wrap: anywhere; }
